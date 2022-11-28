@@ -1,0 +1,15 @@
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  @include media-breakpoint-min(sp) {
+    width: 750px;
+  }
+  @include media-breakpoint-min(tb) {
+    width: 970px;
+  }
+  @include media-breakpoint-min(pc) {
+    width: 1170px;
+  }
+}
