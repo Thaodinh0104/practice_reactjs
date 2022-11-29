@@ -4,9 +4,11 @@
 @import "helpers/variables";
 @import "helpers/mixins";
 @import "index";
-@import "components/header";
+
 @import "layouts/container";
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
+@import "components/header";
+@import "components/dropdown-menu";
 @import "components/slider";
 @import "components/products";

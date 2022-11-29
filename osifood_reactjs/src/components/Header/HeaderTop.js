@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { HeaderCart } from "./HeaderCart";
 import { HeaderAccount } from "./HeaderAccount";
+import { DropdownMenu } from "./DropdownMenu";
 export const HeaderTop = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+
   return (
     <div className="header-top">
       <div className="container">
         <div className="container-header">
           <div className="menu-header">
-            <div className="hamburger-menu-header">
-              <span className="box-icon">
+            <div
+              className="hamburger-menu-header"
+              onClick={() => setOpenMenu(!openMenu)}
+            >
+              <span className={`box-icon ${openMenu ? "active" : ""}`}>
                 <span className="hamburger-menu" aria-hidden="true">
                   <span className="bar"></span>
                 </span>
@@ -22,6 +28,11 @@ export const HeaderTop = () => {
                 </span>
               </span>
               <span className="box-text">MENU</span>
+            </div>
+            <div className={`dropdown-menu ${openMenu ? "active" : ""} `}>
+              <div className="dropdown-menu-inner">
+                <DropdownMenu />
+              </div>
             </div>
           </div>
           <div className="header-wrap-logo logo-gradient">
