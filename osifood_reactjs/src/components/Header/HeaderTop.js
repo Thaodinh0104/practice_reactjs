@@ -16,7 +16,7 @@ export const HeaderTop = () => {
                   <svg viewBox="0 0 19 19" role="presentation">
                     <path
                       d="M9.1923882 8.39339828l7.7781745-7.7781746 1.4142136 1.41421357-7.7781746 7.77817459 7.7781746 7.77817456L16.9705627 19l-7.7781745-7.7781746L1.41421356 19 0 17.5857864l7.7781746-7.77817456L0 2.02943725 1.41421356.61522369 9.1923882 8.39339828z"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                     ></path>
                   </svg>
                 </span>
@@ -26,9 +26,8 @@ export const HeaderTop = () => {
           </div>
           <div className="header-wrap-logo logo-gradient">
             <div className="wrap-logo">
-              <a href="/" itemprop="url">
+              <a href="/">
                 <img
-                  itemprop="logo"
                   src="/images/logo.png"
                   alt="OsiFood"
                   className="img-responsive logoimg "
@@ -47,8 +46,6 @@ export const HeaderTop = () => {
                       id="inputSearchAuto-3"
                       className="input-search"
                       name="q"
-                      maxlength="40"
-                      autocomplete="off"
                       type="text"
                       size="20"
                       placeholder="Tìm kiếm sản phẩm..."

@@ -1,0 +1,39 @@
+.slick-slider {
+  .slick-arrow {
+    border-radius: 100%;
+    background: #ffffff;
+    transition: 0.3s;
+    z-index: 1;
+    height: 32px;
+    width: 32px;
+    &::before {
+      color: #444444;
+    }
+    &:hover {
+      background: #008848;
+      &::before {
+        color: #ffffff;
+      }
+    }
+    &.slick-next {
+      right: 25px;
+    }
+    &.slick-prev {
+      left: 25px;
+    }
+  }
+  .slick-dots {
+    position: absolute;
+    bottom: 15px;
+    li button {
+      &::before {
+        color: #d6d6d6;
+      }
+      &:hover {
+        &::before {
+          color: #008848;
+        }
+      }
+    }
+  }
+}
