@@ -13,10 +13,11 @@ mongoose
   .connect(process.env.MONGODB_URL)
   .then(() => console.log("DB connection established"))
   .catch((err) => console.log(err));
+
+app.use(express.json());
 app.use("/", (req, res) => {
   res.json({ message: "Hello Admin!" });
 });
-app.use(express.json());
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/categories", categoryRouter);
