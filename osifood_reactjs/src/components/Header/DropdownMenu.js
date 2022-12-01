@@ -34,7 +34,7 @@ export const DropdownMenu = () => {
           <svg viewBox="0 0 19 19" role="presentation">
             <path
               d="M9.1923882 8.39339828l7.7781745-7.7781746 1.4142136 1.41421357-7.7781746 7.77817459 7.7781746 7.77817456L16.9705627 19l-7.7781745-7.7781746L1.41421356 19 0 17.5857864l7.7781746-7.77817456L0 2.02943725 1.41421356.61522369 9.1923882 8.39339828z"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             ></path>
           </svg>
         </button>
@@ -59,10 +59,10 @@ export const DropdownMenu = () => {
                     role="presentation"
                   >
                     <path
-                      stroke-width="2"
+                      strokeWidth="2"
                       d="M2 2l4 4-4 4"
                       fill="none"
-                      stroke-linecap="square"
+                      strokeLinecap="square"
                     ></path>
                   </svg>
                 </a>
@@ -79,10 +79,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -106,10 +106,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -150,10 +150,10 @@ export const DropdownMenu = () => {
                     role="presentation"
                   >
                     <path
-                      stroke-width="2"
+                      strokeWidth="2"
                       d="M2 2l4 4-4 4"
                       fill="none"
-                      stroke-linecap="square"
+                      strokeLinecap="square"
                     ></path>
                   </svg>
                 </a>
@@ -167,10 +167,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -203,10 +203,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -242,10 +242,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -279,10 +279,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -324,10 +324,10 @@ export const DropdownMenu = () => {
                     role="presentation"
                   >
                     <path
-                      stroke-width="2"
+                      strokeWidth="2"
                       d="M2 2l4 4-4 4"
                       fill="none"
-                      stroke-linecap="square"
+                      strokeLinecap="square"
                     ></path>
                   </svg>
                 </a>
@@ -341,10 +341,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -372,10 +372,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -403,10 +403,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -434,10 +434,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -469,10 +469,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -500,10 +500,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -533,10 +533,10 @@ export const DropdownMenu = () => {
                     role="presentation"
                   >
                     <path
-                      stroke-width="2"
+                      strokeWidth="2"
                       d="M2 2l4 4-4 4"
                       fill="none"
-                      stroke-linecap="square"
+                      strokeLinecap="square"
                     ></path>
                   </svg>
                 </a>
@@ -550,10 +550,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -585,10 +585,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -612,10 +612,10 @@ export const DropdownMenu = () => {
                         role="presentation"
                       >
                         <path
-                          stroke-width="2"
+                          strokeWidth="2"
                           d="M2 2l4 4-4 4"
                           fill="none"
-                          stroke-linecap="square"
+                          strokeLinecap="square"
                         ></path>
                       </svg>
                     </a>
@@ -645,10 +645,10 @@ export const DropdownMenu = () => {
                     role="presentation"
                   >
                     <path
-                      stroke-width="2"
+                      strokeWidth="2"
                       d="M2 2l4 4-4 4"
                       fill="none"
-                      stroke-linecap="square"
+                      strokeLinecap="square"
                     ></path>
                   </svg>
                 </a>
@@ -672,10 +672,10 @@ export const DropdownMenu = () => {
                 >
                   <svg viewBox="0 0 24 24" role="presentation">
                     <g
-                      stroke-width="2"
+                      strokeWidth="2"
                       fill="none"
-                      fill-rule="evenodd"
-                      stroke-linecap="square"
+                      fillRule="evenodd"
+                      strokeLinecap="square"
                     >
                       <path
                         d="M17 15l-3 3-8-8 3-3-5-5-3 3c0 9.941 8.059 18 18 18l3-3-5-5z"
@@ -697,26 +697,26 @@ export const DropdownMenu = () => {
                   rel="nofollow"
                 >
                   <svg viewBox="0 0 22 22" role="presentation">
-                    <g fill="none" fill-rule="evenodd">
+                    <g fill="none" fillRule="evenodd">
                       <path
                         stroke="#252a2b"
                         d="M.916667 10.08333367l3.66666667-2.65833334v4.65849997zm20.1666667 0L17.416667 7.42500033v4.65849997z"
                       ></path>
                       <path
                         stroke="#252a2b"
-                        stroke-width="2"
+                        strokeWidth="2"
                         d="M4.58333367 7.42500033L.916667 10.08333367V21.0833337h20.1666667V10.08333367L17.416667 7.42500033"
                       ></path>
                       <path
                         stroke="#252a2b"
-                        stroke-width="2"
+                        strokeWidth="2"
                         d="M4.58333367 12.1000003V.916667H17.416667v11.1833333m-16.5-2.01666663L21.0833337 21.0833337m0-11.00000003L11.0000003 15.5833337"
                       ></path>
                       <path
                         d="M8.25000033 5.50000033h5.49999997M8.25000033 9.166667h5.49999997"
                         stroke="#008848"
-                        stroke-width="2"
-                        stroke-linecap="square"
+                        strokeWidth="2"
+                        strokeLinecap="square"
                       ></path>
                     </g>
                   </svg>

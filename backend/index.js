@@ -15,9 +15,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use(express.json());
-app.use("/", (req, res) => {
-  res.json({ message: "Hello Admin!" });
-});
+
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/categories", categoryRouter);

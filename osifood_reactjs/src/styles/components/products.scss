@@ -60,7 +60,8 @@
           color: #333;
         }
         &__addtocart-button {
-          button {
+          position: relative;
+          .add-to-cart {
             padding: 0 5px;
             font-size: 11px;
             font-weight: 500;
@@ -71,9 +72,10 @@
             -webkit-border-radius: 5px;
             -moz-border-radius: 5px;
             border-radius: 5px;
-            border: 1px solid #008848;
             color: #008848;
-            background-color: #fff;
+            &:before {
+              background-color: #fff;
+            }
             .btnico {
               display: inline-block;
               vertical-align: middle;
@@ -87,6 +89,63 @@
                 display: inline-block;
                 vertical-align: middle;
               }
+            }
+            &:hover {
+              color: #ffffff;
+              .btnico {
+                fill: #ffffff;
+              }
+            }
+          }
+          .action-boxqty {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.92);
+            .proloop-boxqty {
+              display: flex;
+              align-items: center;
+              overflow: hidden;
+              height: 32px;
+              line-height: 30px;
+              border: 1px solid #008848;
+
+              border-radius: 5px;
+              .btnqty {
+                line-height: 30px;
+                border: 0;
+                outline: none;
+                height: 30px;
+                width: 30px;
+                background: #ffffff;
+                svg {
+                  width: 13px;
+                  height: 100%;
+                  fill: #008848;
+                  stroke: #008848;
+                }
+              }
+              .proloop-qtyvalue {
+                height: 30px;
+                line-height: 30px;
+                border: 0;
+                outline: none;
+                width: calc(100% - 60px);
+                text-align: center;
+                font-weight: 500;
+                appearance: none;
+              }
+            }
+            &.active {
+              opacity: 1;
+              visibility: visible;
+              transform: scale(1);
+              transition-delay: 0.1s;
+              z-index: 1;
             }
           }
         }
@@ -103,6 +162,9 @@
         background: #ffffff;
         color: #008848;
         border: 1px solid #008848;
+        &::before {
+          background-color: #ffffff;
+        }
       }
     }
   }

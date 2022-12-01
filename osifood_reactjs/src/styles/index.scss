@@ -1,3 +1,29 @@
+:root {
+  --shop-color-bg: #fff;
+  --shop-color-main: #008848;
+  --shop-color-text: #252a2b;
+  --shop-color-title: #000000;
+  --shop-color-hover: #057541;
+  --shop-color-button: #008848;
+  --shop-color-cartbar: #fc5601;
+  --shop-color-border: #e7e7e7;
+  --footer-color-title: #333333;
+  --footer-color-text: #333333;
+  --footer-color-bg: #ffffff;
+  --about01-color-bg: #f5f8fd;
+  --about03-color-bg: #008848;
+  --about03-color-text: #ffffff;
+  --about03-color-hover: #037540;
+  --about03-color-focus: #ffffff;
+  --header-category-bg: #ffffff;
+  --header-category-text: #008848;
+  --header-category-border: #f5f5f5;
+  --header-category-bgitem: #ffffff;
+  --index-promote-bg: #ffffff;
+  --index-promote-bgitem: #ffffff;
+  --product-color-soldout: #c9c3c3;
+}
+
 ul,
 ol {
   padding: 0;
@@ -28,4 +54,43 @@ h6 {
   margin: 0 0 13px 0;
   font-weight: 700;
   line-height: 1.2;
+}
+.button {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  overflow: hidden;
+  padding: 12px 28px;
+  line-height: normal;
+  color: #fff;
+  background-color: var(--shop-color-hover);
+  border: 1px solid var(--shop-color-button);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 1px;
+  outline: none;
+  border-radius: 2px;
+  text-transform: uppercase;
+  transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+    border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  &:before {
+    content: "";
+    display: block;
+    background-color: var(--shop-color-button);
+    position: absolute;
+    left: -2px;
+    top: 0;
+    right: -2px;
+    bottom: 0;
+    z-index: -1;
+    transform: scale(1, 1);
+    transform-origin: left center;
+    transition: transform 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+  &:hover:before,
+  &:focus:before {
+    transform-origin: right center;
+    transform: scale(0, 1);
+  }
 }
