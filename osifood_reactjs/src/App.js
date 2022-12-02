@@ -1,5 +1,7 @@
 import "./App.css";
 import { BannerHover } from "./components/BannerHover";
+import { BlogListing } from "./components/Blog/BlogListing";
+import { Footer } from "./components/Footer";
 import Header from "./components/Header/Header";
 import { HomeSlider } from "./components/Home/HomeSlider";
 import { ProductListing } from "./components/Product/ProductListing";
@@ -44,7 +46,13 @@ function App() {
           title={"Sữa - Sản phẩm từ sữa"}
           showMoreButton={true}
         />
+        <section className="section-index-latestBlog">
+          <div className="container">
+            <BlogListing />
+          </div>
+        </section>
       </div>
+      <Footer />
     </div>
   );
 }

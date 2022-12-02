@@ -17,7 +17,12 @@ export const ProductItem = (item) => {
           <h4 className="product-item__name">{data.title}</h4>
           <span className="product-item__price">{data.price}đ</span>
           <div className="product-item__addtocart-button">
-            <button className="button add-to-cart" onClick={() => setCount(1)}>
+            <button
+              className={`button add-to-cart ${
+                !data.quantity ? "disable" : ""
+              }`}
+              onClick={() => data.quantity && setCount(1)}
+            >
               <span className="btnico">
                 <svg x="0px" y="0px" viewBox="0 0 321.2 321.2">
                   {" "}
@@ -30,41 +35,44 @@ export const ProductItem = (item) => {
                   </g>{" "}
                 </svg>
               </span>
-              <span> Chọn mua </span>
+              {data.quantity > 0 && <span>Chọn mua</span>}
+              {data.quantity == 0 && <span>Tạm hết hàng</span>}
             </button>
-            <div className={`action-boxqty ${count > 0 ? "active" : ""}`}>
-              <div className="proloop-boxqty">
-                <button
-                  type="button"
-                  onClick={() => setCount(count - 1)}
-                  className="btnqty proloop-minus"
-                  aria-label="Minus"
-                >
-                  <svg width="20" height="20" viewBox="0 0 20 20">
-                    <rect height="1" width="18" y="9" x="1"></rect>
-                  </svg>
-                </button>
-                <input
-                  type="text"
-                  name="quantity-proloop"
-                  value={count}
-                  onChange={(e) => setCount(e.target.value)}
-                  min="1"
-                  className="proloop-qtyvalue"
-                />
-                <button
-                  type="button"
-                  onClick={() => setCount(count + 1)}
-                  className="btnqty proloop-plus"
-                  aria-label="Plus"
-                >
-                  <svg width="20" height="20" viewBox="0 0 20 20">
-                    <rect x="9" y="1" width="1" height="17"></rect>
-                    <rect x="1" y="9" width="17" height="1"></rect>
-                  </svg>
-                </button>
+            {data.quantity > 0 && (
+              <div className={`action-boxqty ${count > 0 ? "active" : ""}`}>
+                <div className="proloop-boxqty">
+                  <button
+                    type="button"
+                    onClick={() => setCount(count - 1)}
+                    className="btnqty proloop-minus"
+                    aria-label="Minus"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 20 20">
+                      <rect height="1" width="18" y="9" x="1"></rect>
+                    </svg>
+                  </button>
+                  <input
+                    type="text"
+                    name="quantity-proloop"
+                    value={count}
+                    onChange={(e) => setCount(e.target.value)}
+                    min="1"
+                    className="proloop-qtyvalue"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setCount(count + 1)}
+                    className="btnqty proloop-plus"
+                    aria-label="Plus"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 20 20">
+                      <rect x="9" y="1" width="1" height="17"></rect>
+                      <rect x="1" y="9" width="17" height="1"></rect>
+                    </svg>
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

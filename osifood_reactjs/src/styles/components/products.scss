@@ -96,6 +96,17 @@
                 fill: #ffffff;
               }
             }
+            &.disable {
+              cursor: default;
+
+              box-shadow: none;
+              border-color: var(--product-color-soldout);
+              color: var(--product-color-soldout);
+              background-color: #ffffff;
+              .btnico {
+                display: none;
+              }
+            }
           }
           .action-boxqty {
             position: absolute;

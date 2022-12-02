@@ -1,6 +1,6 @@
 import React from "react";
 
-export const BannerHover = (backgroundSrc, linkTo) => {
+export const BannerHover = ({ backgroundSrc, linkTo }) => {
   console.log(backgroundSrc);
   return (
     <div className="section-banner ">

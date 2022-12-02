@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { HeaderCart } from "./HeaderCart";
 import { HeaderAccount } from "./HeaderAccount";
 import { DropdownMenu } from "./DropdownMenu";
+import { LocationStore } from "./LocationStore";
 export const HeaderTop = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -88,32 +89,7 @@ export const HeaderTop = () => {
           </div>
           <div className="header-wrap-action action-gradient">
             <div className="header-action">
-              <div className="header-action-item header-action_locale locationContainer">
-                <div className="header-action_text ">
-                  <div className="header-action__link">
-                    <span className="box-text ">
-                      <span className="txtnw">
-                        Giao hoặc đến lấy tại{" "}
-                        <i className="fa fa-angle-down" aria-hidden="true"></i>
-                      </span>
-                      <span className="txtbl shiptoHere">
-                        <span className="txt-overflow">
-                          288 Phan Văn Trị, Phường 11, Quận Bình Thạnh
-                        </span>
-                      </span>
-                    </span>
-
-                    <span className="box-triangle">
-                      <svg viewBox="0 0 20 9" role="presentation">
-                        <path
-                          d="M.47108938 9c.2694725-.26871321.57077721-.56867841.90388257-.89986354C3.12384116 6.36134886 5.74788116 3.76338565 9.2467995.30653888c.4145057-.4095171 1.0844277-.40860098 1.4977971.00205122L19.4935156 9H.47108938z"
-                          fill="#ffffff"
-                        ></path>
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <LocationStore />
 
               <HeaderAccount />
               <HeaderCart />
