@@ -1,6 +1,166 @@
 import React from "react";
 
+export const SubMenu = ({ menu, level }) => {
+  // level++;
+  return (
+    <li className={`has-subnav navi${level}  nav-level${level} checknav`}>
+      <a className="link-parent" href="/collections/thit-ca-hai-san">
+        {menu.title}
+        {menu.subMenu && (
+          <svg
+            className="icon-nav-arrow"
+            viewBox="0 0 8 12"
+            role="presentation"
+          >
+            <path
+              strokeWidth="2"
+              d="M2 2l4 4-4 4"
+              fill="none"
+              strokeLinecap="square"
+            ></path>
+          </svg>
+        )}
+      </a>
+      {menu.subMenu && (
+        <ul className="submenu subnav-child">
+          {menu.subMenu.map((subItem) => {
+            return <SubMenu menu={subItem} level={level} />;
+          })}
+        </ul>
+      )}
+    </li>
+  );
+};
+
 export const DropdownMenu = () => {
+  const menuListing = [
+    {
+      title: "Đang khuyến mãi",
+      link: "/collections/thit",
+    },
+    {
+      title: "Thực phẩm tươi sống",
+      link: "/collections/thuc-pham-tuoi-song",
+      subMenu: [
+        {
+          title: "Thịt - trứng - hải sản",
+          link: "/collections/thit-ca-hai-san",
+          subMenu: [
+            {
+              title: "Thịt",
+              link: "/collections/thit",
+            },
+            {
+              title: "Hải Sản",
+              link: "/collections/thit",
+            },
+            {
+              title: "Trứng",
+              link: "/collections/thit",
+            },
+          ],
+        },
+        {
+          title: "Rau - củ - quả",
+          link: "/collections/thit-ca-hai-san",
+          subMenu: [
+            {
+              title: "Rau",
+              link: "/collections/thit",
+            },
+            {
+              title: "Củ",
+              link: "/collections/thit",
+            },
+            {
+              title: "Quả",
+              link: "/collections/thit",
+            },
+          ],
+        },
+        {
+          title: "Trái cây",
+          link: "/collections/thit",
+        },
+        {
+          title: "Thực phẩm chế biến",
+          link: "/collections/thit",
+        },
+      ],
+    },
+    {
+      title: "Thực phẩm công nghệ",
+      link: "/collections/thuc-pham-tuoi-song",
+      subMenu: [
+        {
+          title: "Nước giải khát",
+          link: "/collections/thit-ca-hai-san",
+          subMenu: [
+            {
+              title: "Trà - Cafe",
+              link: "/collections/thit",
+            },
+            {
+              title: "Bột giải khát",
+              link: "/collections/thit",
+            },
+            {
+              title: "Bia - Nước giải khát",
+              link: "/collections/thit",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Thực phẩm tươi sống",
+      link: "/collections/thuc-pham-tuoi-song",
+      subMenu: [
+        {
+          title: "Thịt - trứng - hải sản",
+          link: "/collections/thit-ca-hai-san",
+          subMenu: [
+            {
+              title: "Thịt",
+              link: "/collections/thit",
+            },
+            {
+              title: "Thịt",
+              link: "/collections/thit",
+            },
+            {
+              title: "Thịt",
+              link: "/collections/thit",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Thực phẩm tươi sống",
+      link: "/collections/thuc-pham-tuoi-song",
+      subMenu: [
+        {
+          title: "Thịt - trứng - hải sản",
+          link: "/collections/thit-ca-hai-san",
+          subMenu: [
+            {
+              title: "Thịt",
+              link: "/collections/thit",
+            },
+            {
+              title: "Thịt",
+              link: "/collections/thit",
+            },
+            {
+              title: "Thịt",
+              link: "/collections/thit",
+            },
+          ],
+        },
+      ],
+    },
+  ];
   return (
     <div className="sitenav-content sitenav-menu menu-mobile" id="siteNav-menu">
       <div className="sitenav-content__title">
@@ -43,624 +203,39 @@ export const DropdownMenu = () => {
         <div className="mobile-menu">
           <div className="mobile-menu__inner mplus-menu vertical-navigation">
             <ul className="mobile-menu__linklists">
-              <li className="navi1">
-                <a href="/">Đang khuyến mãi</a>
-              </li>
-
-              <li className="navi1 has-subnav nav-level1 104161061 active1 parent-open  ">
-                <a
-                  className="link-parent"
-                  href="/collections/thuc-pham-tuoi-song"
-                >
-                  Thực phẩm tươi sống
-                  <svg
-                    className="icon-nav-arrow"
-                    viewBox="0 0 8 12"
-                    role="presentation"
-                  >
-                    <path
-                      strokeWidth="2"
-                      d="M2 2l4 4-4 4"
-                      fill="none"
-                      strokeLinecap="square"
-                    ></path>
-                  </svg>
-                </a>
-                <ul className="submenu subnav-child">
-                  <li className="navi2 has-subnav nav-level2   checknav">
+              {menuListing.map((item) => {
+                return (
+                  <li className="navi1 has-subnav nav-level1 104161061 active1 parent-open  ">
                     <a
                       className="link-parent"
-                      href="/collections/thit-ca-hai-san"
+                      href="/collections/thuc-pham-tuoi-song"
                     >
-                      Thịt - trứng - hải sản
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
+                      {item.title}
+                      {item.subMenu && (
+                        <svg
+                          className="icon-nav-arrow"
+                          viewBox="0 0 8 12"
+                          role="presentation"
+                        >
+                          <path
+                            strokeWidth="2"
+                            d="M2 2l4 4-4 4"
+                            fill="none"
+                            strokeLinecap="square"
+                          ></path>
+                        </svg>
+                      )}
                     </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3 ">
-                        <a href="/collections/thit">Thịt</a>
-                      </li>
-
-                      <li className="navi3 ">
-                        <a href="/collections/trung">Trứng</a>
-                      </li>
-                    </ul>
+                    {item.subMenu && (
+                      <ul className="submenu subnav-child">
+                        {item.subMenu.map((subItem) => {
+                          return <SubMenu menu={subItem} level={2} />;
+                        })}
+                      </ul>
+                    )}
                   </li>
-
-                  <li className="navi2 has-subnav nav-level2   checknav">
-                    <a className="link-parent" href="/collections/rau-cu-qua">
-                      Rau - củ - quả
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3  active3 ">
-                        <a href="/">Rau</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Củ</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Quả</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="navi2">
-                    <a href="/collections/trai-cay">Trái cây</a>
-                  </li>
-                  <li className="navi2">
-                    <a href="/collections/thuc-pham-che-bien">
-                      Thực phẩm chế biến
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="navi1 has-subnav nav-level1 104161062 active1 parent-open  ">
-                <a
-                  className="link-parent"
-                  href="/collections/sua-uong-cac-loai"
-                >
-                  Thực phẩm công nghệ
-                  <svg
-                    className="icon-nav-arrow"
-                    viewBox="0 0 8 12"
-                    role="presentation"
-                  >
-                    <path
-                      strokeWidth="2"
-                      d="M2 2l4 4-4 4"
-                      fill="none"
-                      strokeLinecap="square"
-                    ></path>
-                  </svg>
-                </a>
-                <ul className="submenu subnav-child">
-                  <li className="navi2 has-subnav nav-level2  active2   checknav ">
-                    <a className="link-parent" href="/">
-                      Nước giải khát
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3  active3 ">
-                        <a href="/">Trà - Cafe</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Bột giải khát</a>
-                      </li>
-
-                      <li className="navi3 ">
-                        <a href="/collections/bia-nuoc-giai-khat">
-                          Bia - Nước Giải Khát
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="navi2 has-subnav nav-level2   checknav ">
-                    <a
-                      className="link-parent"
-                      href="/collections/sua-san-pham-tu-sua"
-                    >
-                      Sữa - sản phẩm từ sữa
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3 ">
-                        <a href="/collections/sua-dac">Sữa đặc</a>
-                      </li>
-
-                      <li className="navi3 ">
-                        <a href="/collections/sua-uong-cac-loai">Sữa nước</a>
-                      </li>
-
-                      <li className="navi3 ">
-                        <a href="/collections/sua-bot-ngu-coc">
-                          Sữa bột - Ngũ cốc
-                        </a>
-                      </li>
-
-                      <li className="navi3 ">
-                        <a href="/collections/cac-san-pham-tu-sua-khac">
-                          Sản phẩm từ sữa khác
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="navi2 has-subnav nav-level2  active2   checknav ">
-                    <a className="link-parent" href="/">
-                      Thực phẩm
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3 ">
-                        <a href="/collections/san-pham-dong-mat">
-                          Sản phẩm Đông - Mát
-                        </a>
-                      </li>
-
-                      <li className="navi3 ">
-                        <a href="/collections/do-hop-dong-goi">
-                          Đồ hộp đóng gói
-                        </a>
-                      </li>
-
-                      <li className="navi3 ">
-                        <a href="/collections/banh-banh-an-sang">
-                          Bánh - Bánh ăn sáng
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="navi2 has-subnav nav-level2   checknav ">
-                    <a className="link-parent" href="/collections/gia-vi">
-                      Gia vị
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3 ">
-                        <a href="/collections/nuoc-mam">Nước mắm</a>
-                      </li>
-
-                      <li className="navi3 ">
-                        <a href="/collections/nuoc-tuong">Nước tương</a>
-                      </li>
-
-                      <li className="navi3 ">
-                        <a href="/collections/dau-an">Dầu ăn</a>
-                      </li>
-
-                      <li className="navi3 ">
-                        <a href="/collections/gia-vi-che-ben">
-                          Gia vị chế biến
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="navi2 ">
-                    <a href="/collections/banh-keo-mut">Bánh - Kẹo - Mứt</a>
-                  </li>
-                  <li className="navi2 ">
-                    <a href="/collections/luong-thuc-1">Lương Thực 1</a>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="navi1 has-subnav nav-level1 104161129 active1 parent-open  ">
-                <a className="link-parent" href="/">
-                  Hóa phẩm
-                  <svg
-                    className="icon-nav-arrow"
-                    viewBox="0 0 8 12"
-                    role="presentation"
-                  >
-                    <path
-                      strokeWidth="2"
-                      d="M2 2l4 4-4 4"
-                      fill="none"
-                      strokeLinecap="square"
-                    ></path>
-                  </svg>
-                </a>
-                <ul className="submenu subnav-child">
-                  <li className="navi2 has-subnav nav-level2  active2   checknav ">
-                    <a className="link-parent" href="/">
-                      Chăm sóc tóc
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3  active3 ">
-                        <a href="/">Dầu gội</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Dầu xả</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Dưỡng tóc - Gel/Wax tóc</a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="navi2 has-subnav nav-level2  active2   checknav ">
-                    <a className="link-parent" href="/">
-                      Chăm sóc răng miệng
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3  active3 ">
-                        <a href="/">Kem đánh răng</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Bàn chải đánh răng</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Nước súc miệng</a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="navi2 has-subnav nav-level2  active2   checknav ">
-                    <a className="link-parent" href="/">
-                      Chăm sóc cơ thể
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3  active3 ">
-                        <a href="/">Sữa tắm - Xà bông</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Sữa rửa mặt - Dưỡng da</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Khử mùi - Khử khuẩn</a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="navi2 has-subnav nav-level2  active2   checknav ">
-                    <a className="link-parent" href="/">
-                      Chăm sóc nhà cửa
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3  active3 ">
-                        <a href="/">Nước lau sàn</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Tẩy rửa</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Nước rửa chén</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Xịt phòng</a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="navi2 has-subnav nav-level2  active2   checknav ">
-                    <a className="link-parent" href="/">
-                      Giấy
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3  active3 ">
-                        <a href="/">Giấy các loại</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Băng vệ sinh</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Tã giấy</a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="navi2 has-subnav nav-level2  active2   checknav ">
-                    <a className="link-parent" href="/">
-                      Giặt xả
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3  active3 ">
-                        <a href="/">Bột giặt</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Nước xả</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Nước tẩy</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="navi1 has-subnav nav-level1 104161136 active1 parent-open  ">
-                <a className="link-parent" href="/">
-                  Đồ dùng
-                  <svg
-                    className="icon-nav-arrow"
-                    viewBox="0 0 8 12"
-                    role="presentation"
-                  >
-                    <path
-                      strokeWidth="2"
-                      d="M2 2l4 4-4 4"
-                      fill="none"
-                      strokeLinecap="square"
-                    ></path>
-                  </svg>
-                </a>
-                <ul className="submenu subnav-child">
-                  <li className="navi2 has-subnav nav-level2  active2   checknav ">
-                    <a className="link-parent" href="/">
-                      Đồ dùng nhà bếp
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3  active3 ">
-                        <a href="/">Dụng cụ ăn uống</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Dụng cụ khác</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Hộp các loại</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Bảo quản thực phẩm</a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="navi2 has-subnav nav-level2  active2   checknav ">
-                    <a className="link-parent" href="/">
-                      Đồ dùng cá nhân
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3  active3 ">
-                        <a href="/">Đồ dùng cá nhân các loại</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Vệ sinh cá nhân</a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li className="navi2 has-subnav nav-level2  active2   checknav ">
-                    <a className="link-parent" href="/">
-                      Đồ dùng khác
-                      <svg
-                        className="icon-nav-arrow"
-                        viewBox="0 0 8 12"
-                        role="presentation"
-                      >
-                        <path
-                          strokeWidth="2"
-                          d="M2 2l4 4-4 4"
-                          fill="none"
-                          strokeLinecap="square"
-                        ></path>
-                      </svg>
-                    </a>
-                    <ul className="submenu subnav-child">
-                      <li className="navi3  active3 ">
-                        <a href="/">Vệ sinh nhà</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Đồ dùng giặt giũ</a>
-                      </li>
-
-                      <li className="navi3  active3 ">
-                        <a href="/">Văn phòng phẩm</a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="navi1 has-subnav nav-level1 104161140 active1 parent-open  ">
-                <a className="link-parent" href="/">
-                  May mặc
-                  <svg
-                    className="icon-nav-arrow"
-                    viewBox="0 0 8 12"
-                    role="presentation"
-                  >
-                    <path
-                      strokeWidth="2"
-                      d="M2 2l4 4-4 4"
-                      fill="none"
-                      strokeLinecap="square"
-                    ></path>
-                  </svg>
-                </a>
-                <ul className="submenu subnav-child">
-                  <li className="navi2  active2 ">
-                    <a href="/">Khăn</a>
-                  </li>
-                  <li className="navi2  active2 ">
-                    <a href="/">Khẩu trang</a>
-                  </li>
-                </ul>
-              </li>
+                );
+              })}
             </ul>
             <div className="mobile-menu__help">
               <p className="help-title">Bạn cần hỗ trợ</p>{" "}
