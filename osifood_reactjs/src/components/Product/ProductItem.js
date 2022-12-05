@@ -36,7 +36,7 @@ export const ProductItem = (item) => {
                 </svg>
               </span>
               {data.quantity > 0 && <span>Chọn mua</span>}
-              {data.quantity == 0 && <span>Tạm hết hàng</span>}
+              {data.quantity === 0 && <span>Tạm hết hàng</span>}
             </button>
             {data.quantity > 0 && (
               <div className={`action-boxqty ${count > 0 ? "active" : ""}`}>

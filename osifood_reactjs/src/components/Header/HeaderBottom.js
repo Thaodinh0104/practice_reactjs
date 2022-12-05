@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export const HeaderBottom = () => {
+  const menulist = [
+    { name: "Trang chủ", route: "/" },
+    { name: "Giới thiệu", route: "/gioi-thieu" },
+    { name: "Sản Phẩm", route: "/san-pham" },
+    { name: "Bài viết", route: "/blogs" },
+    { name: "Liên hệ", route: "/lien-he" },
+    { name: "Tuyển dụng", route: "/tuyen-dung" },
+  ];
+  const location = useLocation();
+  const [activeItem, setActiveItem] = useState("");
+  useEffect(() => {
+    setActiveItem(location.pathname);
+  }, [location]);
   return (
     <div className="header-bottom">
       <div className="container">
@@ -27,36 +41,23 @@ export const HeaderBottom = () => {
             </span>
           </a>
           <ul className="menulist-cate">
-            <li className="cate-item  active ">
-              <a href="/" title="Trang chủ">
-                Trang chủ
-              </a>
-            </li>
-            <li className="cate-item ">
-              <a href="/pages/gioi-thieu" title="Giới thiệu">
-                Giới thiệu
-              </a>
-            </li>
-            <li className="cate-item ">
-              <a href="/collections/all" title="Sản phẩm">
-                Sản phẩm
-              </a>
-            </li>
-            <li className="cate-item ">
-              <a href="/blogs/tat-ca-bai-viet" title="Bài viết">
-                Bài viết
-              </a>
-            </li>
-            <li className="cate-item ">
-              <a href="/pages/lien-he" title="Liên hệ">
-                Liên hệ
-              </a>
-            </li>
-            <li className="cate-item ">
-              <a href="/pages/osifood-tuyen-dung" title="Tuyển dụng">
-                Tuyển dụng
-              </a>
-            </li>
+            {menulist.map((item) => {
+              return (
+                <li
+                  className={`cate-item ${
+                    activeItem == item.route ? "active" : ""
+                  }`}
+                >
+                  <Link
+                    to={item.route}
+                    title={item.name}
+                    onClick={() => setActiveItem(item.route)}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
