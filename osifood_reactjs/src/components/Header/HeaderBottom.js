@@ -19,12 +19,7 @@ export const HeaderBottom = () => {
     <div className="header-bottom">
       <div className="container">
         <div className="flexbox-categories">
-          <a
-            className="cate-home"
-            href="https://osifood.vn"
-            aria-label="OsiFood"
-            title="OsiFood"
-          >
+          <Link to="/" className="cate-home" title="OsiFood">
             <span className="box-icon">
               <svg x="0px" y="0px" viewBox="0 0 512 512">
                 <g>
@@ -39,13 +34,14 @@ export const HeaderBottom = () => {
                 </g>
               </svg>
             </span>
-          </a>
+          </Link>
           <ul className="menulist-cate">
             {menulist.map((item) => {
               return (
                 <li
+                  key={item.id}
                   className={`cate-item ${
-                    activeItem == item.route ? "active" : ""
+                    activeItem === item.route ? "active" : ""
                   }`}
                 >
                   <Link

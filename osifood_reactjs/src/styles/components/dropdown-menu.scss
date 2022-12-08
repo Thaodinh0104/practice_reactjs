@@ -76,13 +76,6 @@
             max-height: calc(100vh - (75px + 80px));
           }
           &__linklists {
-            .has-subnav {
-              ul {
-                padding-left: 10px;
-                margin-bottom: 10px;
-                display: none;
-              }
-            }
             li {
               position: relative;
               a {
@@ -95,37 +88,57 @@
                 outline: none;
                 font-size: 14px;
                 color: #252a2b;
-                svg {
-                  width: 20px;
-                  height: 20px;
-                  padding: 5px;
-                  stroke: #979797;
-                  position: absolute;
-                  right: 15px;
-                  top: calc(50% - 7px);
-                  transform: rotate(90deg);
+              }
+              svg {
+                width: 20px;
+                height: 20px;
+                padding: 5px;
+                stroke: #979797;
+                position: absolute;
+                right: 15px;
+                top: 7px;
+                transform: rotate(90deg);
+                cursor: pointer;
+              }
+              &.parent-open {
+                > svg {
+                  transform: rotate(-90deg);
+                }
+                > a {
+                  color: var(--shop-color-main);
                 }
               }
-              &.active1 > ul,
-              &.active1 .nav-level2.checknav > ul,
-              &.active1 .nav-level2.active2 > ul {
-                display: block;
+            }
+            .has-subnav {
+              ul {
+                padding-left: 10px;
+                margin-bottom: 10px;
+                display: none;
+                li {
+                  position: relative;
+                  a {
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                  }
+                }
               }
             }
-            > li > a {
-              font-size: 13px;
-              padding-top: 10px;
-              padding-bottom: 10px;
-              font-weight: 700;
-              text-transform: uppercase;
-              position: relative;
-              svg {
-                -webkit-transform: rotate(-90deg);
-                -moz-transform: rotate(-90deg);
-                -ms-transform: rotate(-90deg);
-                -o-transform: rotate(-90deg);
-                transform: rotate(-90deg);
+            > li {
+              > a {
+                font-size: 13px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                font-weight: 700;
+                text-transform: uppercase;
+                position: relative;
               }
+              // > svg {
+              //   -webkit-transform: rotate(-90deg);
+              //   -moz-transform: rotate(-90deg);
+              //   -ms-transform: rotate(-90deg);
+              //   -o-transform: rotate(-90deg);
+              //   transform: rotate(-90deg);
+              // }
             }
           }
           &__help {

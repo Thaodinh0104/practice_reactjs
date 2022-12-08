@@ -1,30 +1,150 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+const menuListing = [
+  {
+    title: "Đang khuyến mãi",
+    link: "/collections/thit",
+  },
+  {
+    title: "Thực phẩm tươi sống",
+    link: "/collections/thuc-pham-tuoi-song",
+    subMenu: [
+      {
+        title: "Thịt - trứng - hải sản",
+        link: "/thit-trung-hai-san",
+        subMenu: [
+          {
+            title: "Thịt",
+            link: "/gioi-thieu",
+          },
+          {
+            title: "Hải Sản",
+            link: "/collections/hai-san",
+          },
+          {
+            title: "Trứng",
+            link: "/collections/trung",
+          },
+        ],
+      },
+      {
+        title: "Rau - củ - quả",
+        link: "/collections/rau-cu-qua",
+        subMenu: [
+          {
+            title: "Rau",
+            link: "/collections/rau",
+          },
+          {
+            title: "Củ",
+            link: "/collections/cu",
+          },
+          {
+            title: "Quả",
+            link: "/collections/qua",
+          },
+        ],
+      },
+      {
+        title: "Trái cây",
+        link: "/collections/trai-cay",
+      },
+      {
+        title: "Thực phẩm chế biến",
+        link: "/collections/thuc-pham-che-bien",
+      },
+    ],
+  },
+  {
+    title: "Thực phẩm công nghệ",
+    link: "/collections/thuc-pham-cong-nghe",
+    subMenu: [
+      {
+        title: "Nước giải khát",
+        link: "/collections/nuoc-giai-khát",
+        subMenu: [
+          {
+            title: "Trà - Cafe",
+            link: "/san-pham",
+          },
+          {
+            title: "Bột giải khát",
+            link: "/collections/bot-giai-khat",
+          },
+          {
+            title: "Bia - Nước giải khát",
+            link: "/collections/bia-nuoc-giai-khat",
+          },
+        ],
+      },
+    ],
+  },
+];
+export const SubMenu = ({ menu, level, onParentShow: isOpen }) => {
+  const [currentItem, setCurrentItem] = useState("");
+  const [activeItem, setActiveItem] = useState(false);
+  const location = useLocation();
 
-export const SubMenu = ({ menu, level }) => {
-  // level++;
+  useEffect(() => {
+    setActiveItem(false);
+    setCurrentItem(location.pathname);
+  }, [location]);
+  useEffect(() => {
+    if (menu.link === currentItem) {
+      setActiveItem(true);
+    }
+  }, [currentItem]);
+  useEffect(() => {
+    if (typeof isOpen == "function" && activeItem) {
+      isOpen(true);
+    }
+  }, [activeItem]);
+
+  const nextLevel = level + 1;
   return (
-    <li className={`has-subnav navi${level}  nav-level${level} checknav`}>
-      <a className="link-parent" href="/collections/thit-ca-hai-san">
+    <li
+      className={`${
+        menu.subMenu ? "has-subnav" : ""
+      } navi${level}  nav-level${level} checknav ${
+        activeItem ? "current-page parent-open" : ""
+      }`}
+    >
+      <Link
+        to={menu.link}
+        className="link-parent"
+        onClick={() => setCurrentItem(menu.link)}
+      >
         {menu.title}
-        {menu.subMenu && (
-          <svg
-            className="icon-nav-arrow"
-            viewBox="0 0 8 12"
-            role="presentation"
-          >
-            <path
-              strokeWidth="2"
-              d="M2 2l4 4-4 4"
-              fill="none"
-              strokeLinecap="square"
-            ></path>
-          </svg>
-        )}
-      </a>
+      </Link>
       {menu.subMenu && (
-        <ul className="submenu subnav-child">
+        <svg
+          className="icon-nav-arrow"
+          viewBox="0 0 8 12"
+          role="presentation"
+          onClick={() => setActiveItem(!activeItem)}
+        >
+          <path
+            strokeWidth="2"
+            d="M2 2l4 4-4 4"
+            fill="none"
+            strokeLinecap="square"
+          ></path>
+        </svg>
+      )}
+      {menu.subMenu && (
+        <ul
+          className="submenu subnav-child"
+          style={{ display: activeItem ? "block" : "none" }}
+        >
           {menu.subMenu.map((subItem) => {
-            return <SubMenu menu={subItem} level={level} />;
+            return (
+              <SubMenu
+                menu={subItem}
+                key={subItem.link}
+                level={nextLevel}
+                onParentShow={(isShow) => setActiveItem(isShow)}
+              />
+            );
           })}
         </ul>
       )}
@@ -33,139 +153,11 @@ export const SubMenu = ({ menu, level }) => {
 };
 
 export const DropdownMenu = () => {
-  const menuListing = [
-    {
-      title: "Đang khuyến mãi",
-      link: "/collections/thit",
-    },
-    {
-      title: "Thực phẩm tươi sống",
-      link: "/collections/thuc-pham-tuoi-song",
-      subMenu: [
-        {
-          title: "Thịt - trứng - hải sản",
-          link: "/collections/thit-ca-hai-san",
-          subMenu: [
-            {
-              title: "Thịt",
-              link: "/collections/thit",
-            },
-            {
-              title: "Hải Sản",
-              link: "/collections/thit",
-            },
-            {
-              title: "Trứng",
-              link: "/collections/thit",
-            },
-          ],
-        },
-        {
-          title: "Rau - củ - quả",
-          link: "/collections/thit-ca-hai-san",
-          subMenu: [
-            {
-              title: "Rau",
-              link: "/collections/thit",
-            },
-            {
-              title: "Củ",
-              link: "/collections/thit",
-            },
-            {
-              title: "Quả",
-              link: "/collections/thit",
-            },
-          ],
-        },
-        {
-          title: "Trái cây",
-          link: "/collections/thit",
-        },
-        {
-          title: "Thực phẩm chế biến",
-          link: "/collections/thit",
-        },
-      ],
-    },
-    {
-      title: "Thực phẩm công nghệ",
-      link: "/collections/thuc-pham-tuoi-song",
-      subMenu: [
-        {
-          title: "Nước giải khát",
-          link: "/collections/thit-ca-hai-san",
-          subMenu: [
-            {
-              title: "Trà - Cafe",
-              link: "/collections/thit",
-            },
-            {
-              title: "Bột giải khát",
-              link: "/collections/thit",
-            },
-            {
-              title: "Bia - Nước giải khát",
-              link: "/collections/thit",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Thực phẩm tươi sống",
-      link: "/collections/thuc-pham-tuoi-song",
-      subMenu: [
-        {
-          title: "Thịt - trứng - hải sản",
-          link: "/collections/thit-ca-hai-san",
-          subMenu: [
-            {
-              title: "Thịt",
-              link: "/collections/thit",
-            },
-            {
-              title: "Thịt",
-              link: "/collections/thit",
-            },
-            {
-              title: "Thịt",
-              link: "/collections/thit",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Thực phẩm tươi sống",
-      link: "/collections/thuc-pham-tuoi-song",
-      subMenu: [
-        {
-          title: "Thịt - trứng - hải sản",
-          link: "/collections/thit-ca-hai-san",
-          subMenu: [
-            {
-              title: "Thịt",
-              link: "/collections/thit",
-            },
-            {
-              title: "Thịt",
-              link: "/collections/thit",
-            },
-            {
-              title: "Thịt",
-              link: "/collections/thit",
-            },
-          ],
-        },
-      ],
-    },
-  ];
   return (
     <div className="sitenav-content sitenav-menu menu-mobile" id="siteNav-menu">
       <div className="sitenav-content__title">
-        <a
-          href="https://osifood.vn"
+        <Link
+          href="/"
           className="navlogo"
           aria-label="Trang chủ"
           title="Trang chủ"
@@ -189,7 +181,7 @@ export const DropdownMenu = () => {
               </g>{" "}
             </svg>
           </span>
-        </a>
+        </Link>
         <button className="btnclose">
           <svg viewBox="0 0 19 19" role="presentation">
             <path
@@ -204,45 +196,15 @@ export const DropdownMenu = () => {
           <div className="mobile-menu__inner mplus-menu vertical-navigation">
             <ul className="mobile-menu__linklists">
               {menuListing.map((item) => {
-                return (
-                  <li className="navi1 has-subnav nav-level1 104161061 active1 parent-open  ">
-                    <a
-                      className="link-parent"
-                      href="/collections/thuc-pham-tuoi-song"
-                    >
-                      {item.title}
-                      {item.subMenu && (
-                        <svg
-                          className="icon-nav-arrow"
-                          viewBox="0 0 8 12"
-                          role="presentation"
-                        >
-                          <path
-                            strokeWidth="2"
-                            d="M2 2l4 4-4 4"
-                            fill="none"
-                            strokeLinecap="square"
-                          ></path>
-                        </svg>
-                      )}
-                    </a>
-                    {item.subMenu && (
-                      <ul className="submenu subnav-child">
-                        {item.subMenu.map((subItem) => {
-                          return <SubMenu menu={subItem} level={2} />;
-                        })}
-                      </ul>
-                    )}
-                  </li>
-                );
+                return <SubMenu menu={item} level={1} key={item.link} />;
               })}
             </ul>
             <div className="mobile-menu__help">
               <p className="help-title">Bạn cần hỗ trợ</p>{" "}
               <div className="help-item">
                 <a
-                  className="help-item--link"
                   href="tel:0919439489"
+                  className="help-item--link"
                   rel="nofollow"
                 >
                   <svg viewBox="0 0 24 24" role="presentation">
@@ -267,8 +229,8 @@ export const DropdownMenu = () => {
               </div>
               <div className="help-item">
                 <a
-                  className="help-item--link"
                   href="mailto:osifoodos99@gmail.com"
+                  className="help-item--link"
                   rel="nofollow"
                 >
                   <svg viewBox="0 0 22 22" role="presentation">

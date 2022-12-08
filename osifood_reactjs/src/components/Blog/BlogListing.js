@@ -83,7 +83,7 @@ export const BlogListing = (data) => {
       </h2>
       <Row className="latestBlog">
         {blogs.map((item) => {
-          return <BlogItem col={column} data={item} />;
+          return <BlogItem key={item} col={column} data={item} />;
         })}
       </Row>
       {showViewMore && (

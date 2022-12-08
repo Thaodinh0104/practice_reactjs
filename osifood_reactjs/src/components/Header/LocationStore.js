@@ -104,7 +104,7 @@ export const LocationStore = () => {
                     {locations.map((item) => {
                       return (
                         <li
-                          key={item.is}
+                          key={item.id}
                           data-id={item.id}
                           data-district={item.district}
                           data-province={item.province}

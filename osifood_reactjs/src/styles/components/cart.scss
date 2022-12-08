@@ -1,0 +1,204 @@
+.mini-cart {
+  .sitenav-content__title {
+    position: relative;
+    padding: 0 0 10px;
+    border-bottom: 1px solid var(--shop-color-border);
+    text-align: center;
+    .txt-title {
+      font-size: 18px;
+      color: var(--shop-color-title);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0;
+      font-weight: 500;
+    }
+  }
+  .sitenav-content__block {
+    padding-top: 0;
+    .sitenav-boxscroll {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      overflow-y: scroll;
+      max-height: 55vh;
+      -webkit-overflow-scrolling: touch;
+      -ms-scroll-chaining: none;
+      overscroll-behavior: none;
+      margin-right: -20px;
+      padding-right: 20px;
+    }
+  }
+  .mini-cart__item {
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    position: relative;
+    border-bottom: 1px dotted var(--shop-color-border);
+  }
+  &__left {
+    -ms-flex: 0 0 85px;
+    flex: 0 0 85px;
+    max-width: 85px;
+    text-align: center;
+    img {
+      display: block;
+      border: 1px solid #ededed;
+    }
+  }
+  &__right {
+    -ms-flex: 0 0 calc(100% - 85px);
+    flex: 0 0 calc(100% - 85px);
+    max-width: calc(100% - 85px);
+    padding-left: 15px;
+    .mnc-title {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      padding-right: 35px;
+      text-transform: uppercase;
+      color: var(--shop-color-text);
+    }
+    .mnc-variant {
+      display: block;
+      font-size: 13px;
+      margin: 0px 0 7px;
+    }
+    .mini-cart__quantity {
+      margin-top: 15px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-align-items: center;
+      align-items: center;
+      -ms-justify-content: space-between;
+      justify-content: space-between;
+    }
+  }
+  &__quantity {
+    margin-top: 15px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+    .quantity-selector {
+      white-space: nowrap;
+      margin-right: 15px;
+      display: flex;
+      .qty-btn {
+        background: rgba(0, 136, 72, 0.04);
+        border: 1px solid rgba(0, 136, 72, 0.06);
+        color: var(--shop-color-main);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        outline: none;
+        box-shadow: none;
+        display: flex;
+        vertical-align: middle;
+        svg {
+          height: 22px;
+          width: 10px;
+          fill: var(--shop-color-main);
+          stroke: var(--shop-color-main);
+        }
+      }
+      .qty-value {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 15px;
+        outline: none;
+        border: 0;
+        width: 30px;
+        text-align: center;
+        color: #000000;
+        line-height: 24px;
+        height: 24px;
+      }
+    }
+  }
+  &__price {
+    display: block;
+    font-weight: 600;
+    color: #000;
+  }
+  &__remove {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background: #f4f6fb;
+    display: block;
+    color: var(--shop-color-text);
+    svg {
+      width: 10px;
+      height: 20px;
+    }
+  }
+  .cart-view-line {
+    clear: both;
+    width: 100%;
+    border-top: 1px solid var(--shop-color-border);
+    margin: 0 0 5px;
+  }
+  .cart-view-total {
+    .mini-cart {
+      &__total {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-align-items: center;
+        align-items: center;
+        -ms-justify-content: space-between;
+        justify-content: space-between;
+        .mnc-total {
+          font-weight: 500;
+          color: #252a2b;
+          padding: 10px 0;
+          &.mnc-total-price {
+            font-weight: 600;
+            font-size: 16px;
+            color: red;
+          }
+        }
+      }
+      &__button {
+        margin: 0 -5px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-align-items: center;
+        align-items: center;
+        -ms-justify-content: space-between;
+        justify-content: space-between;
+        .mnc-cta {
+          padding: 0 5px;
+          flex: 0 0 100%;
+          -ms-flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .linktocart {
+          display: block;
+          width: 100%;
+          margin: 5px 0 10px;
+          font-size: 12px;
+          padding: 10px 10px;
+        }
+        .button.btnred {
+          background-color: #ffffff;
+          border-color: #ff0000;
+          &:before {
+            background: #ff0000;
+          }
+          &:hover {
+            color: #ff0000;
+            border-color: #ff0000;
+          }
+        }
+      }
+    }
+  }
+}
