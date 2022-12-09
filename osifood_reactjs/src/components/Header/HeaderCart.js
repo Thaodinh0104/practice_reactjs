@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Cart } from "../AddToCart";
-
+import { OverlayActive } from "../../context/AppContextProvider";
 export const HeaderCart = () => {
   const [openPopup, setOpenPopup] = useState(false);
-
+  const { overlayShow, handleOverlayShow } = useContext(OverlayActive);
+  useEffect(() => {
+    openPopup && handleOverlayShow(true);
+  }, [openPopup]);
+  useEffect(() => {
+    !overlayShow && setOpenPopup(false);
+  }, [overlayShow]);
   return (
     <div className="header-action-item header-action_cart">
       <div className="header-action_text">
         <div
           className="header-action__link "
-          onClick={() => setOpenPopup(!openPopup)}
+          onClick={() => {
+            setOpenPopup(!openPopup);
+          }}
         >
           <span className="box-icon">
             <svg

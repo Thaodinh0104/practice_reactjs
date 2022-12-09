@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
+import { OverlayActive } from "../../context/AppContextProvider";
 import { AboutUs } from "../../pages/AboutUs";
 import { Blog } from "../../pages/Blog";
 import { Career } from "../../pages/Career";
@@ -10,6 +11,7 @@ import { Footer } from "../Footer";
 import Header from "../Header/Header";
 
 export const Layout = () => {
+  const { overlayShow, handleOverlayShow } = useContext(OverlayActive);
   return (
     <div className="App">
       <Header />
@@ -22,6 +24,11 @@ export const Layout = () => {
         <Route path="/tuyen-dung" element={<Career />} />
       </Routes>
       <Footer />
+      <div
+        id="sitenav-overlay"
+        class={`sitenav-overlay ${overlayShow && "show"}`}
+        onClick={() => handleOverlayShow(false)}
+      ></div>
     </div>
   );
 };

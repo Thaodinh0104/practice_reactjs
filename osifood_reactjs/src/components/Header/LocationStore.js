@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { OverlayActive } from "../../context/AppContextProvider";
 const locations = [
   {
     id: "1233389",
@@ -40,6 +41,7 @@ const locations = [
 ];
 export const LocationStore = () => {
   const [openLocation, setOpenLocation] = useState(false);
+  const { overlayShow, handleOverlayShow } = useContext(OverlayActive);
   const [activeLocation, setActiveLocation] = useState({
     id: "1233389",
     district: "Quận Bình Thạnh",
@@ -47,13 +49,21 @@ export const LocationStore = () => {
     address: "OsiFood Bình Hòa",
     fullAddress: "288 Phan Văn Trị, Phường 11, Quận Bình Thạnh",
   });
+  useEffect(() => {
+    openLocation && handleOverlayShow(true);
+  }, [openLocation]);
+  useEffect(() => {
+    !overlayShow && setOpenLocation(false);
+  }, [overlayShow]);
   return (
     <div className="header-action-item header-action_locale location-store locationContainer">
       <div className="header-action_text ">
         <div className="header-action__link">
           <span
             className="box-text "
-            onClick={() => setOpenLocation(!openLocation)}
+            onClick={() => {
+              setOpenLocation(!openLocation);
+            }}
           >
             <span className="txtnw">
               Giao hoặc đến lấy tại{" "}

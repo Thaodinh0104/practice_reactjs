@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { OverlayActive } from "../../context/AppContextProvider";
 import { Login } from "../Account/Login";
 
 export const HeaderAccount = () => {
   const [openPopup, setOpenPopup] = useState(false);
-
+  const { overlayShow, handleOverlayShow } = useContext(OverlayActive);
+  useEffect(() => {
+    openPopup && handleOverlayShow(true);
+  }, [openPopup]);
+  useEffect(() => {
+    !overlayShow && setOpenPopup(false);
+  }, [overlayShow]);
   return (
     <div className="header-action-item header-action_account">
       <div className="header-action_text">
