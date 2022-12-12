@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Cart } from "../AddToCart";
 import { OverlayActive } from "../../context/AppContextProvider";
+import { useSelector, useDispatch } from "react-redux";
 export const HeaderCart = () => {
   const [openPopup, setOpenPopup] = useState(false);
   const { overlayShow, handleOverlayShow } = useContext(OverlayActive);
+  const { Carts, numberCart } = useSelector((state) => state.cart);
   useEffect(() => {
     openPopup && handleOverlayShow(true);
   }, [openPopup]);
@@ -39,7 +41,7 @@ export const HeaderCart = () => {
               </svg>
             </span>
             <span className="count-holder">
-              <span className="count">0</span>
+              <span className="count">{numberCart}</span>
             </span>
           </span>
           <span className="box-text">

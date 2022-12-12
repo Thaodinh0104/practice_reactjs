@@ -1,24 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CartItem } from "./CartItem";
-const cartList = [
-  {
-    _id: "637ef422b28413483f4dceac",
-    title: "Cá hú tươi 500g",
-    img: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
-    price: "32.8",
-    quantity: 100,
-    amount: 2,
-  },
-  {
-    _id: "637ef508b28413483f4dceae",
-    title: "Ba rọi heo rút sườn - Nam Phong 100g",
-    img: "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
-    price: "27.8",
-    quantity: 100,
-    amount: 1,
-  },
-];
+import { useSelector, useDispatch } from "react-redux";
 export const Cart = () => {
+  const { Carts, numberCart } = useSelector((state) => state.cart);
+  const [totalPrices, setTotalPrices] = useState(0);
+  console.log(Carts);
+  useEffect(() => {
+    console.log("Cart");
+    const newTotalPrice = Carts.reduce((accumulator, object) => {
+      return accumulator + object.amount * object.price;
+    }, 0);
+    setTotalPrices(newTotalPrice);
+  }, [Carts]);
   return (
     <div className="sitenav-content sitenav-cart mini-cart">
       <div className="sitenav-content__title">
@@ -28,7 +21,7 @@ export const Cart = () => {
       <div className="sitenav-content__block cart-view">
         <div className="cart-view-scroll sitenav-boxscroll">
           <div className="cart-view-render">
-            {cartList.map((item) => {
+            {Carts.map((item) => {
               return <CartItem data={item} />;
             })}
           </div>
@@ -39,7 +32,7 @@ export const Cart = () => {
             <div className="mini-cart__total">
               <div className="mnc-total mnc-total-text">TỔNG TIỀN:</div>
               <div className="mnc-total mnc-total-price" id="total-view-cart">
-                67,800₫
+                {totalPrices.toFixed(3)}₫
               </div>
             </div>
 

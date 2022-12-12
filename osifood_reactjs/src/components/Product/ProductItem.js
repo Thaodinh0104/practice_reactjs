@@ -1,10 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
-export const ProductItem = (item) => {
+import { useSelector, useDispatch } from "react-redux";
+import {
+  ADD_CART,
+  INCREASE_QUANTITY,
+  DELETE_CART,
+  DECREASE_QUANTITY,
+  selectCart,
+} from "../../redux/reducer";
+export const ProductItem = (item, key) => {
   const { data } = item;
   const [count, setCount] = useState(0);
-  console.log(count);
+  // const Carts = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const Carts = useSelector(selectCart);
+
   // May be call for search result
+  const incrementNumber = (id) => {
+    Carts.map((cart, key) => {
+      if (cart._id === id) {
+        dispatch(INCREASE_QUANTITY(key));
+      }
+    });
+  };
+  const deIncrementNumber = (id) => {
+    Carts.map((cart, key) => {
+      if (cart._id === id) {
+        if (cart.amount == 1) {
+          dispatch(DELETE_CART(key));
+          setCount(0);
+        } else {
+          dispatch(DECREASE_QUANTITY(key));
+        }
+      }
+    });
+  };
+  const AddToCart = (item) => {
+    console.log(item._id);
+    dispatch(ADD_CART(item));
+  };
+  useEffect(() => {
+    Carts.map((cart, key) => {
+      if (cart._id === data._id) {
+        setCount(cart.amount);
+      }
+    });
+  }, [dispatch, Carts]);
 
   return (
     <Col xs={2} className="product-item" key={data._id}>
@@ -21,7 +62,7 @@ export const ProductItem = (item) => {
               className={`button add-to-cart ${
                 !data.quantity ? "disable" : ""
               }`}
-              onClick={() => data.quantity && setCount(1)}
+              onClick={() => AddToCart(data)}
             >
               <span className="btnico">
                 <svg x="0px" y="0px" viewBox="0 0 321.2 321.2">
@@ -43,7 +84,7 @@ export const ProductItem = (item) => {
                 <div className="proloop-boxqty">
                   <button
                     type="button"
-                    onClick={() => setCount(count - 1)}
+                    onClick={() => deIncrementNumber(data._id)}
                     className="btnqty proloop-minus"
                     aria-label="Minus"
                   >
@@ -55,13 +96,13 @@ export const ProductItem = (item) => {
                     type="text"
                     name="quantity-proloop"
                     value={count}
-                    onChange={(e) => setCount(e.target.value)}
+                    onChange={(e) => setCount(count + 1)}
                     min="1"
                     className="proloop-qtyvalue"
                   />
                   <button
                     type="button"
-                    onClick={() => setCount(count + 1)}
+                    onClick={() => incrementNumber(data._id)}
                     className="btnqty proloop-plus"
                     aria-label="Plus"
                   >
