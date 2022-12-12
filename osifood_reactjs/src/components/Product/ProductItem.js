@@ -39,14 +39,20 @@ export const ProductItem = (item, key) => {
     console.log(item._id);
     dispatch(ADD_CART(item));
   };
+
   useEffect(() => {
-    Carts.map((cart, key) => {
+    console.log(Carts);
+    Carts.length === 0 && setCount(0);
+    let isItem = Carts.find((cart, key) => {
       if (cart._id === data._id) {
-        setCount(cart.amount);
+        return cart;
       }
     });
-  }, [dispatch, Carts]);
-
+    console.log("isItem", isItem);
+    if (isItem) {
+      setCount(isItem.amount);
+    }
+  }, [Carts, dispatch]);
   return (
     <Col xs={2} className="product-item" key={data._id}>
       <div className="product-item__inner">
